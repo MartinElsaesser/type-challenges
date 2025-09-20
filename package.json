@@ -12,7 +12,9 @@
     "generate": "esno ./scripts/generate-play.ts",
     "lint": "eslint .",
     "translate": "esno ./scripts/translate-cli.ts",
-    "utils:release": "pnpm -C utils release"
+    "utils:release": "pnpm -C utils release",
+    "prettier:fix": "prettier --write .",
+    "prettier:check": "prettier --check ."
   },
   "dependencies": {
     "esno": "^4.0.0",
@@ -32,6 +34,7 @@
     "@types/prompts": "^2.4.9",
     "ansis": "^4.1.0",
     "eslint": "^8.56.0",
+    "prettier": "^3.6.2",
     "prompts": "^2.4.2",
     "typescript": "^5.3.3",
     "utility-types": "^3.10.0"
