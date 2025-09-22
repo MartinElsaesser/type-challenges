@@ -30,12 +30,12 @@ type TokenizeQueryParams<TParam extends string> =
 	: TParam extends `${infer Key}=${infer Value}` ? { [K in Key]: Value }
 	: { [K in TParam]: true };
 
-type Tokenizer<S extends string, Collect extends Record<string, TokenValues[] | TokenValues> = {}> =
+type Parser<S extends string, Collect extends Record<string, TokenValues[] | TokenValues> = {}> =
 	S extends `${infer W1}&${infer W2}` ?
-		Tokenizer<W2, MergeObjIntoArr<TokenizeQueryParams<W1>, Collect>>
+		Parser<W2, MergeObjIntoArr<TokenizeQueryParams<W1>, Collect>>
 	:	MergeObjIntoArr<TokenizeQueryParams<S>, Collect>;
 
-type ParseQueryString<S extends string> = JoinIntersections<Tokenizer<S>>;
+type ParseQueryString<S extends string> = JoinIntersections<Parser<S>>;
 
 type TokenValues = string | true;
 type MergeObjIntoArr<
