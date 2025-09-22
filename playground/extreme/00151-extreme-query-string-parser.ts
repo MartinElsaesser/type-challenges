@@ -19,28 +19,111 @@
 
 /* _____________ Your Code Here _____________ */
 
-type ParseQueryString = any
+import { expectTypeOf } from "expect-type";
+
+type JoinIntersections<T> = {
+	[K in keyof T]: T[K];
+};
+
+type TokenizeQueryParams<S extends string> =
+	S extends "" ? {}
+	: S extends `${infer K}=${infer V extends string}` ?
+		{
+			[P in K]: V;
+		}
+	:	{
+			[P in S]: true;
+		};
+type QueryParamToken = TokenizeQueryParams<any>;
+
+type Tokenizer<S extends string> =
+	S extends `${infer W1}&${infer W2}` ? [TokenizeQueryParams<W1>, ...Tokenizer<W2>]
+	:	[TokenizeQueryParams<S>];
+
+type Parser<
+	Tokens extends QueryParamToken[],
+	Collect extends Record<string, TokenValues[] | TokenValues> = {},
+> =
+	Tokens extends [infer F extends QueryParamToken, ...infer R extends QueryParamToken[]] ?
+		Parser<R, MergeObjIntoArr<F, Collect>>
+	:	Collect;
+
+type ParseQueryString<S extends string> = JoinIntersections<Parser<Tokenizer<S>>>;
+
+type TokenValues = string | true;
+type MergeObjIntoArr<
+	TObj extends Record<string, TokenValues>,
+	TArr extends Record<string, TokenValues[] | TokenValues>,
+	CommonKeys extends string = Extract<keyof TObj & string, keyof TArr & string>,
+> = Omit<TObj, CommonKeys> &
+	Omit<TArr, CommonKeys> & {
+		[P in CommonKeys]: TArr[P] extends TokenValues[] ? StringArrMerge<TObj[P], TArr[P]>
+		:	StringMerge<TObj[P], TArr[P] & TokenValues>;
+	};
+
+type StringArrMerge<T extends TokenValues, TArr extends TokenValues[]> =
+	T extends TArr[number] ? TArr : [...TArr, T];
+type StringMerge<T2 extends TokenValues, T1 extends TokenValues> =
+	[T2, T1] extends [T1, T2] ? T1 : [T1, T2];
+
+type TMO<
+	TObj extends Record<string, TokenValues>,
+	TArr extends Record<string, TokenValues | TokenValues[]>,
+> = JoinIntersections<MergeObjIntoArr<TObj, TArr>>;
+
+// independent objects
+expectTypeOf<TMO<{ k2: "v2"; k4: "v4" }, { k1: "v1"; k3: "v3" }>>().toEqualTypeOf<{
+	k1: "v1";
+	k2: "v2";
+	k3: "v3";
+	k4: "v4";
+}>();
+expectTypeOf<TMO<{ k2: "v2" }, { k1: "v1" }>>().toEqualTypeOf<{ k1: "v1"; k2: "v2" }>();
+expectTypeOf<TMO<{ k1: "v1" }, {}>>().toEqualTypeOf<{ k1: "v1" }>();
+expectTypeOf<TMO<{}, { k2: "v2" }>>().toEqualTypeOf<{ k2: "v2" }>();
+
+// dependent objects: no duplicates
+expectTypeOf<TMO<{ k1: "v2" }, { k1: "v1" }>>().toEqualTypeOf<{ k1: ["v1", "v2"] }>();
+expectTypeOf<TMO<{ k1: "v1" }, { k1: "v0" }>>().toEqualTypeOf<{ k1: ["v0", "v1"] }>();
+
+expectTypeOf<TMO<{ k1: "v3" }, { k1: ["v1", "v2"] }>>().toEqualTypeOf<{
+	k1: ["v1", "v2", "v3"];
+}>();
+
+expectTypeOf<TMO<{}, { k1: ["v1", "v2"] }>>().toEqualTypeOf<{
+	k1: ["v1", "v2"];
+}>();
+
+// dependent objects: duplicates
+expectTypeOf<TMO<{ k1: true }, { k1: true }>>().toEqualTypeOf<{ k1: true }>();
+expectTypeOf<TMO<{ k1: true }, { k1: [true, "false"] }>>().toEqualTypeOf<{ k1: [true, "false"] }>();
+expectTypeOf<TMO<{ k1: "v1" }, { k1: "v1" }>>().toEqualTypeOf<{ k1: "v1" }>();
+expectTypeOf<TMO<{ k1: "v1" }, { k1: ["v1", "v2"] }>>().toEqualTypeOf<{
+	k1: ["v1", "v2"];
+}>();
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<ParseQueryString<''>, {}>>,
-  Expect<Equal<ParseQueryString<'k1'>, { k1: true }>>,
-  Expect<Equal<ParseQueryString<'k1&k1'>, { k1: true }>>,
-  Expect<Equal<ParseQueryString<'k1&k2'>, { k1: true, k2: true }>>,
-  Expect<Equal<ParseQueryString<'k1=v1'>, { k1: 'v1' }>>,
-  Expect<Equal<ParseQueryString<'k1=v1&k1=v2'>, { k1: ['v1', 'v2'] }>>,
-  Expect<Equal<ParseQueryString<'k1=v1&k2=v2'>, { k1: 'v1', k2: 'v2' }>>,
-  Expect<Equal<ParseQueryString<'k1=v1&k2=v2&k1=v2'>, { k1: ['v1', 'v2'], k2: 'v2' }>>,
-  Expect<Equal<ParseQueryString<'k1=v1&k2'>, { k1: 'v1', k2: true }>>,
-  Expect<Equal<ParseQueryString<'k1=v1&k1=v1'>, { k1: 'v1' }>>,
-  Expect<Equal<ParseQueryString<'k1=v1&k1=v2&k1=v1'>, { k1: ['v1', 'v2'] }>>,
-  Expect<Equal<ParseQueryString<'k1=v1&k2=v1&k1=v2&k1=v1'>, { k1: ['v1', 'v2'], k2: 'v1' }>>,
-  Expect<Equal<ParseQueryString<'k1=v1&k2=v2&k1=v2&k1=v3'>, { k1: ['v1', 'v2', 'v3'], k2: 'v2' }>>,
-  Expect<Equal<ParseQueryString<'k1=v1&k1'>, { k1: ['v1', true] }>>,
-  Expect<Equal<ParseQueryString<'k1&k1=v1'>, { k1: [true, 'v1'] }>>,
-]
+	Expect<Equal<ParseQueryString<"">, {}>>,
+	Expect<Equal<ParseQueryString<"k1">, { k1: true }>>,
+	Expect<Equal<ParseQueryString<"k1&k1">, { k1: true }>>,
+	Expect<Equal<ParseQueryString<"k1&k2">, { k1: true; k2: true }>>,
+	Expect<Equal<ParseQueryString<"k1=v1">, { k1: "v1" }>>,
+	Expect<Equal<ParseQueryString<"k1=v1&k1=v2">, { k1: ["v1", "v2"] }>>,
+	Expect<Equal<ParseQueryString<"k1=v1&k2=v2">, { k1: "v1"; k2: "v2" }>>,
+	Expect<Equal<ParseQueryString<"k1=v1&k2=v2&k1=v2">, { k1: ["v1", "v2"]; k2: "v2" }>>,
+	Expect<Equal<ParseQueryString<"k1=v1&k2">, { k1: "v1"; k2: true }>>,
+	Expect<Equal<ParseQueryString<"k1=v1&k1=v1">, { k1: "v1" }>>,
+	Expect<Equal<ParseQueryString<"k1=v1&k1=v2&k1=v1">, { k1: ["v1", "v2"] }>>,
+	Expect<Equal<ParseQueryString<"k1=v1&k2=v1&k1=v2&k1=v1">, { k1: ["v1", "v2"]; k2: "v1" }>>,
+	Expect<
+		Equal<ParseQueryString<"k1=v1&k2=v2&k1=v2&k1=v3">, { k1: ["v1", "v2", "v3"]; k2: "v2" }>
+	>,
+	Expect<Equal<ParseQueryString<"k1=v1&k1">, { k1: ["v1", true] }>>,
+	Expect<Equal<ParseQueryString<"k1&k1=v1">, { k1: [true, "v1"] }>>,
+];
 
 /* _____________ Further Steps _____________ */
 /*
