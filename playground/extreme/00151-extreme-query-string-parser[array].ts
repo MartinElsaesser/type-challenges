@@ -25,15 +25,10 @@ type JoinIntersections<T> = {
 	[K in keyof T]: T[K];
 };
 
-type TokenizeQueryParams<S extends string> =
-	S extends "" ? {}
-	: S extends `${infer K}=${infer V extends string}` ?
-		{
-			[P in K]: V;
-		}
-	:	{
-			[P in S]: true;
-		};
+type TokenizeQueryParams<TParam extends string> =
+	TParam extends "" ? {}
+	: TParam extends `${infer Key}=${infer Value}` ? { [K in Key]: Value }
+	: { [K in TParam]: true };
 type QueryParamToken = TokenizeQueryParams<any>;
 
 type Tokenizer<S extends string> =
