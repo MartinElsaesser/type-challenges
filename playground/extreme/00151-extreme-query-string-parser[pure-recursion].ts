@@ -21,42 +21,44 @@
 
 import { expectTypeOf } from "expect-type";
 
-type JoinIntersections<T> = {
-	[K in keyof T]: T[K];
-};
-
 type TokenizeQueryParams<TParam extends string> =
 	TParam extends "" ? {}
 	: TParam extends `${infer Key}=${infer Value}` ? { [K in Key]: Value }
 	: { [K in TParam]: true };
 
-type Parser<S extends string, Collect extends Record<string, TokenValues[] | TokenValues> = {}> =
-	S extends `${infer W1}&${infer W2}` ?
-		Parser<W2, MergeObjIntoArr<TokenizeQueryParams<W1>, Collect>>
-	:	MergeObjIntoArr<TokenizeQueryParams<S>, Collect>;
+type Parser<S extends string, Collect extends Params = {}> =
+	S extends `${infer W1}&${infer W2}` ? Parser<W2, MergeParams<TokenizeQueryParams<W1>, Collect>>
+	:	MergeParams<TokenizeQueryParams<S>, Collect>;
 
-type ParseQueryString<S extends string> = JoinIntersections<Parser<S>>;
+type ParseQueryString<S extends string> = Parser<S>;
 
 type TokenValues = string | true;
-type MergeObjIntoArr<
-	TObj extends Record<string, TokenValues>,
-	TArr extends Record<string, TokenValues[] | TokenValues>,
-	CommonKeys extends string = Extract<keyof TObj & string, keyof TArr & string>,
-> = Omit<TObj, CommonKeys> &
-	Omit<TArr, CommonKeys> & {
-		[P in CommonKeys]: TArr[P] extends TokenValues[] ? StringArrMerge<TObj[P], TArr[P]>
-		:	StringMerge<TObj[P], TArr[P] & TokenValues>;
-	};
 
-type StringArrMerge<T extends TokenValues, TArr extends TokenValues[]> =
-	T extends TArr[number] ? TArr : [...TArr, T];
-type StringMerge<T2 extends TokenValues, T1 extends TokenValues> =
+type Param = Record<string, TokenValues>;
+type Params = Record<string, TokenValues[] | TokenValues>;
+type MergeParams<TParam extends Param, TParams extends Params> = {
+	[Key in keyof TParam | keyof TParams]: Key extends keyof TParam ?
+		Key extends keyof TParams ?
+			MergeValues<TParam[Key], TParams[Key]> // Key is a duplicate
+		:	TParam[Key] // Key is not a duplicate
+	: Key extends keyof TParams ?
+		TParams[Key] // Key is not a duplicate
+	:	never; // something went terribly wrong
+};
+
+type MergeValues<TParamVal extends TokenValues, TParamsVal extends TokenValues[] | TokenValues> =
+	TParamsVal extends TokenValues[] ? MergeParamIntoParams<TParamVal, TParamsVal>
+	:	MergeParamIntoParam<TParamVal, TParamsVal & TokenValues>;
+
+type MergeParamIntoParams<TParamVal extends TokenValues, TParamsVal extends TokenValues[]> =
+	TParamVal extends TParamsVal[number] ? TParamsVal : [...TParamsVal, TParamVal];
+type MergeParamIntoParam<T2 extends TokenValues, T1 extends TokenValues> =
 	[T2, T1] extends [T1, T2] ? T1 : [T1, T2];
 
 type TMO<
 	TObj extends Record<string, TokenValues>,
 	TArr extends Record<string, TokenValues | TokenValues[]>,
-> = JoinIntersections<MergeObjIntoArr<TObj, TArr>>;
+> = MergeParams<TObj, TArr>;
 
 // independent objects
 expectTypeOf<TMO<{ k2: "v2"; k4: "v4" }, { k1: "v1"; k3: "v3" }>>().toEqualTypeOf<{
