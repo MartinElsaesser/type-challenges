@@ -23,24 +23,29 @@
 
 /* _____________ Your Code Here _____________ */
 
-declare function PromiseAll(values: any): any
+declare function PromiseAll<Values extends unknown[]>(
+	values: [...Values]
+): Promise<{
+	[P in keyof Values]: Awaited<Values[P]>;
+}>;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
-const promiseAllTest1 = PromiseAll([1, 2, 3] as const)
-const promiseAllTest2 = PromiseAll([1, 2, Promise.resolve(3)] as const)
-const promiseAllTest3 = PromiseAll([1, 2, Promise.resolve(3)])
-const promiseAllTest4 = PromiseAll<Array<number | Promise<number>>>([1, 2, 3])
-const promiseAllTest5 = PromiseAll<(number | Promise<string>)[]>([1, 2, Promise.resolve('3')])
+const promiseAllTest1 = PromiseAll([1, 2, 3] as const);
+const promiseAllTest2 = PromiseAll([1, 2, Promise.resolve(3)] as const);
+const promiseAllTest3 = PromiseAll([1, 2, Promise.resolve(3)]);
+//    ^?
+const promiseAllTest4 = PromiseAll<Array<number | Promise<number>>>([1, 2, 3]);
+const promiseAllTest5 = PromiseAll<(number | Promise<string>)[]>([1, 2, Promise.resolve("3")]);
 
 type cases = [
-  Expect<Equal<typeof promiseAllTest1, Promise<[1, 2, 3]>>>,
-  Expect<Equal<typeof promiseAllTest2, Promise<[1, 2, number]>>>,
-  Expect<Equal<typeof promiseAllTest3, Promise<[number, number, number]>>>,
-  Expect<Equal<typeof promiseAllTest4, Promise<number[]>>>,
-  Expect<Equal<typeof promiseAllTest5, Promise<(number | string)[]>>>,
-]
+	Expect<Equal<typeof promiseAllTest1, Promise<[1, 2, 3]>>>,
+	Expect<Equal<typeof promiseAllTest2, Promise<[1, 2, number]>>>,
+	Expect<Equal<typeof promiseAllTest3, Promise<[number, number, number]>>>,
+	Expect<Equal<typeof promiseAllTest4, Promise<number[]>>>,
+	Expect<Equal<typeof promiseAllTest5, Promise<(number | string)[]>>>,
+];
 
 /* _____________ Further Steps _____________ */
 /*
