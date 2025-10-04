@@ -39,55 +39,61 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Chainable = {
-  option(key: string, value: any): any
-  get(): any
-}
+type CheckKey<Key extends string, Options> =
+	Key extends keyof Options ? `key '${Key}' is already present in Options` : Key;
+
+type Chainable<Options = {}> = {
+	option<Key extends string, Value>(
+		key: CheckKey<Key, Options>,
+		value: Value
+	): Chainable<Omit<Options, Key> & Record<Key, Value>>;
+	get(): Options;
+};
 
 /* _____________ Test Cases _____________ */
-import type { Alike, Expect } from '@type-challenges/utils'
+import type { Alike, Expect } from "@type-challenges/utils";
 
-declare const a: Chainable
+declare const a: Chainable;
 
 const result1 = a
-  .option('foo', 123)
-  .option('bar', { value: 'Hello World' })
-  .option('name', 'type-challenges')
-  .get()
+	.option("foo", 123)
+	.option("bar", { value: "Hello World" })
+	.option("name", "type-challenges")
+	.get();
 
 const result2 = a
-  .option('name', 'another name')
-  // @ts-expect-error
-  .option('name', 'last name')
-  .get()
+	.option("name", "another name")
+	// @ts-expect-error
+	.option("name", "last name")
+	.get();
 
 const result3 = a
-  .option('name', 'another name')
-  // @ts-expect-error
-  .option('name', 123)
-  .get()
+	.option("name", "another name")
+	// @ts-expect-error
+	.option("name", 123)
+	.get();
 
 type cases = [
-  Expect<Alike<typeof result1, Expected1>>,
-  Expect<Alike<typeof result2, Expected2>>,
-  Expect<Alike<typeof result3, Expected3>>,
-]
+	Expect<Alike<typeof result1, Expected1>>,
+	Expect<Alike<typeof result2, Expected2>>,
+	Expect<Alike<typeof result3, Expected3>>,
+];
 
 type Expected1 = {
-  foo: number
-  bar: {
-    value: string
-  }
-  name: string
-}
+	foo: number;
+	bar: {
+		value: string;
+	};
+	name: string;
+};
 
 type Expected2 = {
-  name: string
-}
+	name: string;
+};
 
 type Expected3 = {
-  name: number
-}
+	name: number;
+};
 
 /* _____________ Further Steps _____________ */
 /*
