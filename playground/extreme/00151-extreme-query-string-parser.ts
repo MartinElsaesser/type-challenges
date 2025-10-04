@@ -67,35 +67,35 @@ type TMO<
 > = JoinIntersections<MergeObjIntoArr<TObj, TArr>>;
 
 // independent objects
-expectTypeOf<TMO<{ k2: "v2"; k4: "v4" }, { k1: "v1"; k3: "v3" }>>().toEqualTypeOf<{
+expectTypeOf<{
 	k1: "v1";
 	k2: "v2";
 	k3: "v3";
 	k4: "v4";
-}>();
-expectTypeOf<TMO<{ k2: "v2" }, { k1: "v1" }>>().toEqualTypeOf<{ k1: "v1"; k2: "v2" }>();
-expectTypeOf<TMO<{ k1: "v1" }, {}>>().toEqualTypeOf<{ k1: "v1" }>();
-expectTypeOf<TMO<{}, { k2: "v2" }>>().toEqualTypeOf<{ k2: "v2" }>();
+}>().toEqualTypeOf<TMO<{ k2: "v2"; k4: "v4" }, { k1: "v1"; k3: "v3" }>>();
+expectTypeOf<{ k1: "v1"; k2: "v2" }>().toEqualTypeOf<TMO<{ k2: "v2" }, { k1: "v1" }>>();
+expectTypeOf<{ k1: "v1" }>().toEqualTypeOf<TMO<{ k1: "v1" }, {}>>();
+expectTypeOf<{ k2: "v2" }>().toEqualTypeOf<TMO<{}, { k2: "v2" }>>();
 
 // dependent objects: no duplicates
-expectTypeOf<TMO<{ k1: "v2" }, { k1: "v1" }>>().toEqualTypeOf<{ k1: ["v1", "v2"] }>();
-expectTypeOf<TMO<{ k1: "v1" }, { k1: "v0" }>>().toEqualTypeOf<{ k1: ["v0", "v1"] }>();
+expectTypeOf<{ k1: ["v1", "v2"] }>().toEqualTypeOf<TMO<{ k1: "v2" }, { k1: "v1" }>>();
+expectTypeOf<{ k1: ["v0", "v1"] }>().toEqualTypeOf<TMO<{ k1: "v1" }, { k1: "v0" }>>();
 
-expectTypeOf<TMO<{ k1: "v3" }, { k1: ["v1", "v2"] }>>().toEqualTypeOf<{
+expectTypeOf<{
 	k1: ["v1", "v2", "v3"];
-}>();
+}>().toEqualTypeOf<TMO<{ k1: "v3" }, { k1: ["v1", "v2"] }>>();
 
-expectTypeOf<TMO<{}, { k1: ["v1", "v2"] }>>().toEqualTypeOf<{
+expectTypeOf<{
 	k1: ["v1", "v2"];
-}>();
+}>().toEqualTypeOf<TMO<{}, { k1: ["v1", "v2"] }>>();
 
 // dependent objects: duplicates
-expectTypeOf<TMO<{ k1: true }, { k1: true }>>().toEqualTypeOf<{ k1: true }>();
-expectTypeOf<TMO<{ k1: true }, { k1: [true, "false"] }>>().toEqualTypeOf<{ k1: [true, "false"] }>();
-expectTypeOf<TMO<{ k1: "v1" }, { k1: "v1" }>>().toEqualTypeOf<{ k1: "v1" }>();
-expectTypeOf<TMO<{ k1: "v1" }, { k1: ["v1", "v2"] }>>().toEqualTypeOf<{
+expectTypeOf<{ k1: true }>().toEqualTypeOf<TMO<{ k1: true }, { k1: true }>>();
+expectTypeOf<{ k1: [true, "false"] }>().toEqualTypeOf<TMO<{ k1: true }, { k1: [true, "false"] }>>();
+expectTypeOf<{ k1: "v1" }>().toEqualTypeOf<TMO<{ k1: "v1" }, { k1: "v1" }>>();
+expectTypeOf<{
 	k1: ["v1", "v2"];
-}>();
+}>().toEqualTypeOf<TMO<{ k1: "v1" }, { k1: ["v1", "v2"] }>>();
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
