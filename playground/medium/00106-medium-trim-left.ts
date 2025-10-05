@@ -19,12 +19,10 @@
 /* _____________ Your Code Here _____________ */
 
 type TrimLeft<S extends string> =
-	S extends `${infer F}${infer R}` ?
-		F extends " " ? TrimLeft<R>
-		: F extends "\n" ? TrimLeft<R>
-		: F extends "\t" ? TrimLeft<R>
-		: S
-	:	S;
+	S extends ` ${infer R}` ? TrimLeft<R>
+	: S extends `\n${infer R}` ? TrimLeft<R>
+	: S extends `\t${infer R}` ? TrimLeft<R>
+	: S;
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
