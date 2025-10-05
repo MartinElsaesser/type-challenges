@@ -17,15 +17,9 @@
 */
 
 /* _____________ Your Code Here _____________ */
-type TrimLeft<S extends string> =
-	S extends ` ${infer R}` ? TrimLeft<R>
-	: S extends `\n${infer R}` ? TrimLeft<R>
-	: S extends `\t${infer R}` ? TrimLeft<R>
-	: S;
 
-type Reverse<S extends string> = S extends `${infer F}${infer R}` ? `${Reverse<R>}${F}` : S;
-
-type Trim<S extends string> = Reverse<TrimLeft<Reverse<TrimLeft<S>>>>;
+type Space = " " | "\t" | "\n";
+type Trim<S extends string> = S extends `${Space}${infer T}` | `${infer T}${Space}` ? Trim<T> : S;
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
