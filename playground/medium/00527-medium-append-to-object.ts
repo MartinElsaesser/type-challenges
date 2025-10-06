@@ -19,53 +19,58 @@
 
 /* _____________ Your Code Here _____________ */
 
-type AppendToObject<T, U, V> = any
+type Intersection<U, V, _Keys extends PropertyKey = keyof U | keyof V> = {
+	[P in _Keys]: P extends keyof U ? U[P] : V[P & keyof V];
+};
+type AppendToObject<T, U extends PropertyKey, V> = Intersection<T, { [P in U]: V }>;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
+
+type debug = AppendToObject<test1, "home", boolean>;
 
 type test1 = {
-  key: 'cat'
-  value: 'green'
-}
+	key: "cat";
+	value: "green";
+};
 
 type testExpect1 = {
-  key: 'cat'
-  value: 'green'
-  home: boolean
-}
+	key: "cat";
+	value: "green";
+	home: boolean;
+};
 
 type test2 = {
-  key: 'dog' | undefined
-  value: 'white'
-  sun: true
-}
+	key: "dog" | undefined;
+	value: "white";
+	sun: true;
+};
 
 type testExpect2 = {
-  key: 'dog' | undefined
-  value: 'white'
-  sun: true
-  home: 1
-}
+	key: "dog" | undefined;
+	value: "white";
+	sun: true;
+	home: 1;
+};
 
 type test3 = {
-  key: 'cow'
-  value: 'yellow'
-  sun: false
-}
+	key: "cow";
+	value: "yellow";
+	sun: false;
+};
 
 type testExpect3 = {
-  key: 'cow'
-  value: 'yellow'
-  sun: false
-  moon: false | undefined
-}
+	key: "cow";
+	value: "yellow";
+	sun: false;
+	moon: false | undefined;
+};
 
 type cases = [
-  Expect<Equal<AppendToObject<test1, 'home', boolean>, testExpect1>>,
-  Expect<Equal<AppendToObject<test2, 'home', 1>, testExpect2>>,
-  Expect<Equal<AppendToObject<test3, 'moon', false | undefined>, testExpect3>>,
-]
+	Expect<Equal<AppendToObject<test1, "home", boolean>, testExpect1>>,
+	Expect<Equal<AppendToObject<test2, "home", 1>, testExpect2>>,
+	Expect<Equal<AppendToObject<test3, "moon", false | undefined>, testExpect3>>,
+];
 
 /* _____________ Further Steps _____________ */
 /*
