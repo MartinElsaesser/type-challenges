@@ -16,18 +16,41 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Permutation<T> = any
+type Permutation<T, _T2 = T> =
+	[T] extends [never] ? []
+	: _T2 extends _T2 ? [_T2, ...Permutation<Exclude<T, _T2>>]
+	: never;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<Permutation<'A'>, ['A']>>,
-  Expect<Equal<Permutation<'A' | 'B' | 'C'>, ['A', 'B', 'C'] | ['A', 'C', 'B'] | ['B', 'A', 'C'] | ['B', 'C', 'A'] | ['C', 'A', 'B'] | ['C', 'B', 'A']>>,
-  Expect<Equal<Permutation<'B' | 'A' | 'C'>, ['A', 'B', 'C'] | ['A', 'C', 'B'] | ['B', 'A', 'C'] | ['B', 'C', 'A'] | ['C', 'A', 'B'] | ['C', 'B', 'A']>>,
-  Expect<Equal<Permutation<boolean>, [false, true] | [true, false]>>,
-  Expect<Equal<Permutation<never>, []>>,
-]
+	Expect<Equal<Permutation<"A">, ["A"]>>,
+	Expect<
+		Equal<
+			Permutation<"A" | "B" | "C">,
+			| ["A", "B", "C"]
+			| ["A", "C", "B"]
+			| ["B", "A", "C"]
+			| ["B", "C", "A"]
+			| ["C", "A", "B"]
+			| ["C", "B", "A"]
+		>
+	>,
+	Expect<
+		Equal<
+			Permutation<"B" | "A" | "C">,
+			| ["A", "B", "C"]
+			| ["A", "C", "B"]
+			| ["B", "A", "C"]
+			| ["B", "C", "A"]
+			| ["C", "A", "B"]
+			| ["C", "B", "A"]
+		>
+	>,
+	Expect<Equal<Permutation<boolean>, [false, true] | [true, false]>>,
+	Expect<Equal<Permutation<never>, []>>,
+];
 
 /* _____________ Further Steps _____________ */
 /*
