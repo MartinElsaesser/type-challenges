@@ -21,24 +21,35 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Pop<Arr extends number[], _Acc extends number[] = []> =
-	Arr extends [...infer ExceptLast extends number[], number] ? ExceptLast : [];
+type ReverseString<T extends string> =
+	T extends `${infer F}${infer R}` ? `${ReverseString<R>}${F}` : T;
 
-type CreateZeroesTuple<RepeatCount extends number, _Acc extends number[] = []> =
-	_Acc["length"] extends RepeatCount ? _Acc : CreateZeroesTuple<RepeatCount, [0, ..._Acc]>;
+type SubtractOneReversed<T extends string> =
+	T extends `${infer F extends number}${infer R}` ?
+		F extends 0 ?
+			`${9}${SubtractOneReversed<R>}`
+		:	`${[never, "0", "1", "2", "3", "4", "5", "6", "7", "8"][F]}${R}`
+	:	T;
 
-type SubtractOne<
-	Num1 extends number,
-	_Tuple extends number[] = CreateZeroesTuple<Num1>,
-	_TupleMinusOne extends number[] = Pop<_Tuple>,
-> = _TupleMinusOne["length"];
+type RemoveLeadingChar<T extends string, Char extends string> =
+	T extends `${infer F}${infer R}` ?
+		F extends Char ?
+			RemoveLeadingChar<R, Char>
+		:	T
+	:	T;
 
-type Cast<T, U> = T extends U ? T : U;
+type MinusOne<
+	T extends number,
+	_ReversedNum extends string = ReverseString<`${T}`>,
+	_SubtractedOne extends string = SubtractOneReversed<_ReversedNum>,
+	_ResultWithoutZero extends string = RemoveLeadingChar<ReverseString<_SubtractedOne>, "0">,
+	_Result extends string = _ResultWithoutZero extends "" ? "0" : _ResultWithoutZero,
+> = _Result extends `${infer Result extends number}` ? Result : never;
 
 type FlattenDepth<
 	Arr extends any[],
 	Depth extends number = 1,
-	_NextDepth extends number = SubtractOne<Depth>,
+	_NextDepth extends number = MinusOne<Depth>,
 > =
 	Depth extends 0 ? Arr
 	: Arr extends [infer F, ...infer R] ?
@@ -46,16 +57,6 @@ type FlattenDepth<
 			[...FlattenDepth<F, _NextDepth>, ...FlattenDepth<R, Depth>]
 		:	[F, ...FlattenDepth<R, Depth>]
 	:	[];
-
-type test = FlattenDepth<[1, 2, [3, 4], [[[5]]]]>;
-//   ^?
-
-// Arr        					Depth       _Acc					_NextDepth
-// [1, 2, [3, 4], [[[5]]]]		2			[]						1
-// [2, [3, 4], [[[5]]]]			2			[1]						1
-// [[3, 4], [[[5]]]]			2(check)	[1,2]					1
-// [3, 4, [[[5]]]]				1			[1,2]					0
-// [3, 4, [[[5]]]]				1			[1,2]					0
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
