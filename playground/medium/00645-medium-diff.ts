@@ -12,31 +12,33 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Diff<O, O1> = any
+type Diff<O, O1> = Omit<O & O1, keyof (O | O1)>;
 
+type debugDiff = Diff<Foo, Bar>;
+//   ^?
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type Foo = {
-  name: string
-  age: string
-}
+	name: string;
+	age: string;
+};
 type Bar = {
-  name: string
-  age: string
-  gender: number
-}
+	name: string;
+	age: string;
+	gender: number;
+};
 type Coo = {
-  name: string
-  gender: number
-}
+	name: string;
+	gender: number;
+};
 
 type cases = [
-  Expect<Equal<Diff<Foo, Bar>, { gender: number }>>,
-  Expect<Equal<Diff<Bar, Foo>, { gender: number }>>,
-  Expect<Equal<Diff<Foo, Coo>, { age: string, gender: number }>>,
-  Expect<Equal<Diff<Coo, Foo>, { age: string, gender: number }>>,
-]
+	Expect<Equal<Diff<Foo, Bar>, { gender: number }>>,
+	Expect<Equal<Diff<Bar, Foo>, { gender: number }>>,
+	Expect<Equal<Diff<Foo, Coo>, { age: string; gender: number }>>,
+	Expect<Equal<Diff<Coo, Foo>, { age: string; gender: number }>>,
+];
 
 /* _____________ Further Steps _____________ */
 /*
