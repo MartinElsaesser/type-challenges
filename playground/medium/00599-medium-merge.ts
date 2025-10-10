@@ -27,27 +27,34 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Merge<F, S> = any
+type Merge<U, V, _Keys extends PropertyKey = keyof U | keyof V> = {
+	[P in _Keys]: P extends keyof V ? V[P] : U[P & keyof U];
+};
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type Foo = {
-  a: number
-  b: string
-}
+	a: number;
+	b: string;
+};
 type Bar = {
-  b: number
-  c: boolean
-}
+	b: number;
+	c: boolean;
+};
 
 type cases = [
-  Expect<Equal<Merge<Foo, Bar>, {
-    a: number
-    b: number
-    c: boolean
-  }>>,
-]
+	Expect<
+		Equal<
+			Merge<Foo, Bar>,
+			{
+				a: number;
+				b: number;
+				c: boolean;
+			}
+		>
+	>,
+];
 
 /* _____________ Further Steps _____________ */
 /*
