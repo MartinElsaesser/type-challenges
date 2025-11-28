@@ -28,26 +28,58 @@
 
 /* _____________ Your Code Here _____________ */
 
-declare function Currying(fn: any): any
+// gets the first element within a tuple as a tuple, this preserves the tuple label
+// source: https://stackoverflow.com/a/72244704/388951
+type FirstAsTuple<T extends unknown[]> =
+	T extends [any, ...infer R] ?
+		T extends [...infer F, ...R] ?
+			F
+		:	never
+	:	never;
+
+type CurriedFunction<Args extends unknown[], Return> =
+	Args extends [any, ...infer RestArgs] ?
+		(...arg: FirstAsTuple<Args>) => CurriedFunction<RestArgs, Return>
+	:	Return;
+
+type ParametersAndReturnType<Fn extends Function> =
+	Fn extends (...args: infer Parameters) => infer Return ?
+		{ parameters: Parameters; return: Return }
+	:	never;
+
+declare function Currying<Fn extends Function>(
+	fn: Fn
+): ParametersAndReturnType<Fn> extends (
+	{ parameters: infer Params extends unknown[]; return: infer Return }
+) ?
+	Params extends [] ?
+		() => Return
+	:	CurriedFunction<Params, Return>
+:	never;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
-const curried1 = Currying((a: string, b: number, c: boolean) => true)
-const curried2 = Currying((a: string, b: number, c: boolean, d: boolean, e: boolean, f: string, g: boolean) => true)
-const curried3 = Currying(() => true)
+const curried1 = Currying((a: string, b: number, c: boolean) => true);
+const curried2 = Currying(
+	(a: string, b: number, c: boolean, d: boolean, e: boolean, f: string, g: boolean) => true
+);
+const curried3 = Currying(() => true);
 
 type cases = [
-  Expect<Equal<
-    typeof curried1,
-(a: string) => (b: number) => (c: boolean) => true
-  >>,
-  Expect<Equal<
-    typeof curried2,
-(a: string) => (b: number) => (c: boolean) => (d: boolean) => (e: boolean) => (f: string) => (g: boolean) => true
-  >>,
-  Expect<Equal<typeof curried3, () => true>>,
-]
+	Expect<Equal<typeof curried1, (a: string) => (b: number) => (c: boolean) => true>>,
+	Expect<
+		Equal<
+			typeof curried2,
+			(
+				a: string
+			) => (
+				b: number
+			) => (c: boolean) => (d: boolean) => (e: boolean) => (f: string) => (g: boolean) => true
+		>
+	>,
+	Expect<Equal<typeof curried3, () => true>>,
+];
 
 /* _____________ Further Steps _____________ */
 /*
