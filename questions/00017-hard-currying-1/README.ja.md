@@ -7,11 +7,11 @@
 例えば：
 
 ```ts
-const add = (a: number, b: number) => a + b
-const three = add(1, 2)
+const add = (a: number, b: number) => a + b;
+const three = add(1, 2);
 
-const curriedAdd = Currying(add)
-const five = curriedAdd(2)(3)
+const curriedAdd = Currying(add);
+const five = curriedAdd(2)(3);
 ```
 
 `Currying` に渡された関数は複数の引数を持つ場合があり、正しく型を付ける必要があります。

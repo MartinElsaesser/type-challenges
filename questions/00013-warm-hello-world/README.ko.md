@@ -8,12 +8,12 @@ Type Challenges에서는 타입 단언(assertion)을 하기 위해 자체적인 
 
 ```ts
 // string이 되어야 합니다.
-type HelloWorld = any
+type HelloWorld = any;
 ```
 
 ```ts
 // 아래의 테스트가 통과하도록 만드세요.
-type test = Expect<Equal<HelloWorld, string>>
+type test = Expect<Equal<HelloWorld, string>>;
 ```
 
 `Take the Challenge` 버튼을 클릭해서 코딩을 시작하세요! Happy Hacking!

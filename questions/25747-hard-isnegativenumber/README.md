@@ -8,9 +8,8 @@ Write a type-level function `IsNegativeNumber` that accepts a number `N` and ret
 
 - `true` if `N` is negative
 - `false` if `N` is positive
-- `false` if `N` is `0`, 
+- `false` if `N` is `0`,
 - `never` if `N` is `number`
 - `never` if `N` is a union
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/25747/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/25747/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

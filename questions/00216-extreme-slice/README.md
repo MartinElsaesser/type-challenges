@@ -5,9 +5,8 @@ Implement the JavaScript `Array.slice` function in the type system. `Slice<Arr, 
 For example
 
 ```ts
-type Arr = [1, 2, 3, 4, 5]
-type Result = Slice<Arr, 2, 4> // expected to be [3, 4]
+type Arr = [1, 2, 3, 4, 5];
+type Result = Slice<Arr, 2, 4>; // expected to be [3, 4]
 ```
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/216/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/216/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

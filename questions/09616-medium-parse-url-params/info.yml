@@ -2,5 +2,5 @@ difficulty: medium
 title: Parse URL Params
 tags: infer, string, template-literal
 author:
-  github: andersonjoseph
-  name: Anderson. J
+    github: andersonjoseph
+    name: Anderson. J

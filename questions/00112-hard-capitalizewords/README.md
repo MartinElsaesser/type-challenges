@@ -5,8 +5,7 @@ Implement `CapitalizeWords<T>` which converts the first letter of **each word of
 For example
 
 ```ts
-type capitalized = CapitalizeWords<'hello world, my friends'> // expected to be 'Hello World, My Friends'
+type capitalized = CapitalizeWords<"hello world, my friends">; // expected to be 'Hello World, My Friends'
 ```
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/112/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/112/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

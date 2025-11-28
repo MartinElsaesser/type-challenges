@@ -16,24 +16,24 @@ Vue ライクな型付けの簡略化されたバージョンを実装してく�
 
 ```ts
 const instance = SimpleVue({
-  data() {
-    return {
-      firstname: 'Type',
-      lastname: 'Challenges',
-      amount: 10,
-    }
-  },
-  computed: {
-    fullname() {
-      return this.firstname + ' ' + this.lastname
-    }
-  },
-  methods: {
-    hi() {
-      alert(this.fullname.toLowerCase())
-    }
-  }
-})
+	data() {
+		return {
+			firstname: "Type",
+			lastname: "Challenges",
+			amount: 10,
+		};
+	},
+	computed: {
+		fullname() {
+			return this.firstname + " " + this.lastname;
+		},
+	},
+	methods: {
+		hi() {
+			alert(this.fullname.toLowerCase());
+		},
+	},
+});
 ```
 
 <!--info-footer-start--><br><a href="../../README.ja.md" target="_blank"><img src="https://img.shields.io/badge/-%E6%88%BB%E3%82%8B-grey" alt="戻る"/></a> <a href="https://tsch.js.org/6/answer/ja" target="_blank"><img src="https://img.shields.io/badge/-%E8%A7%A3%E7%AD%94%E3%82%92%E5%85%B1%E6%9C%89-teal" alt="解答を共有"/></a> <a href="https://tsch.js.org/6/solutions" target="_blank"><img src="https://img.shields.io/badge/-%E8%A7%A3%E7%AD%94%E3%82%92%E7%A2%BA%E8%AA%8D-de5a77?logo=awesome-lists&logoColor=white" alt="解答を確認"/></a> <hr><h3>関連する課題</h3><a href="https://github.com/type-challenges/type-challenges/blob/main/questions/00213-hard-vue-basic-props/README.ja.md" target="_blank"><img src="https://img.shields.io/badge/-213%E3%83%BBVue%20Basic%20Props-de3d37" alt="213・Vue Basic Props"/></a> <!--info-footer-end-->

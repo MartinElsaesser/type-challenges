@@ -6,7 +6,7 @@ labels: answer, en
 ---
 
 <!--
-Notes: 
+Notes:
 
 🎉 Congrats on solving the challenge and we are happy to see you'd like to share your solutions!
 

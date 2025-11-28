@@ -1,1 +1,1 @@
-type ParseUrlParams<T> = any
+type ParseUrlParams<T> = any;

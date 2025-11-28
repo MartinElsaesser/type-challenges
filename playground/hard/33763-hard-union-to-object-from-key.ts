@@ -12,42 +12,54 @@
 
 /* _____________ Your Code Here _____________ */
 
-type UnionToObjectFromKey<Union, Key> = any
+type UnionToObjectFromKey<Union, Key> = any;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type Foo = {
-  foo: string
-  common: boolean
-}
+	foo: string;
+	common: boolean;
+};
 
 type Bar = {
-  bar: number
-  common: boolean
-}
+	bar: number;
+	common: boolean;
+};
 
 type Other = {
-  other: string
-}
+	other: string;
+};
 
 type cases = [
-  Expect<Equal<UnionToObjectFromKey<Foo | Bar, 'foo'>, Foo>>,
-  Expect<Equal<UnionToObjectFromKey<Foo | Bar, 'common'>, {
-    foo: string
-    common: boolean
-  } | {
-    bar: number
-    common: boolean
-  }>>,
-  Expect<Equal<UnionToObjectFromKey<Foo | Bar | Other, 'common'>, {
-    foo: string
-    common: boolean
-  } | {
-    bar: number
-    common: boolean
-  }>>,
-]
+	Expect<Equal<UnionToObjectFromKey<Foo | Bar, "foo">, Foo>>,
+	Expect<
+		Equal<
+			UnionToObjectFromKey<Foo | Bar, "common">,
+			| {
+					foo: string;
+					common: boolean;
+			  }
+			| {
+					bar: number;
+					common: boolean;
+			  }
+		>
+	>,
+	Expect<
+		Equal<
+			UnionToObjectFromKey<Foo | Bar | Other, "common">,
+			| {
+					foo: string;
+					common: boolean;
+			  }
+			| {
+					bar: number;
+					common: boolean;
+			  }
+		>
+	>,
+];
 
 /* _____________ Further Steps _____________ */
 /*

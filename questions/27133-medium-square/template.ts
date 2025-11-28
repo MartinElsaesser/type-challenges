@@ -1,1 +1,1 @@
-type Square<N extends number> = number
+type Square<N extends number> = number;

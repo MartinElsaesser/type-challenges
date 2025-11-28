@@ -5,9 +5,7 @@
 例如
 
 ```ts
-type trimmed = Trim<'  Hello World  '> // expected to be 'Hello World'
+type trimmed = Trim<"  Hello World  ">; // expected to be 'Hello World'
 ```
 
-
 <!--info-footer-start--><br><a href="../../README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-%E8%BF%94%E5%9B%9E%E9%A6%96%E9%A1%B5-grey" alt="返回首页"/></a> <a href="https://tsch.js.org/108/answer/zh-CN" target="_blank"><img src="https://img.shields.io/badge/-%E5%88%86%E4%BA%AB%E4%BD%A0%E7%9A%84%E8%A7%A3%E7%AD%94-teal" alt="分享你的解答"/></a> <a href="https://tsch.js.org/108/solutions" target="_blank"><img src="https://img.shields.io/badge/-%E6%9F%A5%E7%9C%8B%E8%A7%A3%E7%AD%94-de5a77?logo=awesome-lists&logoColor=white" alt="查看解答"/></a> <hr><h3>相关挑战</h3><a href="https://github.com/type-challenges/type-challenges/blob/main/questions/00106-medium-trimleft/README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-106%E3%83%BB%E5%8E%BB%E9%99%A4%E5%B7%A6%E4%BE%A7%E7%A9%BA%E7%99%BD-d9901a" alt="106・去除左侧空白"/></a>  <a href="https://github.com/type-challenges/type-challenges/blob/main/questions/04803-medium-trim-right/README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-4803%E3%83%BBTrim%20Right-d9901a" alt="4803・Trim Right"/></a> <!--info-footer-end-->
-

@@ -1,1 +1,1 @@
-type OptionalUndefined<T, Props> = any
+type OptionalUndefined<T, Props> = any;

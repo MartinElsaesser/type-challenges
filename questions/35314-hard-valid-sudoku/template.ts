@@ -1,1 +1,1 @@
-type ValidSudoku<M extends number[][]> = any
+type ValidSudoku<M extends number[][]> = any;

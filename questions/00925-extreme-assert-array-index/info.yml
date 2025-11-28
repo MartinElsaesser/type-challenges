@@ -2,7 +2,7 @@ difficulty: extreme
 title: Assert Array Index
 tags: array
 tsconfig:
-  noUncheckedIndexedAccess: true
+    noUncheckedIndexedAccess: true
 author:
-  github: uid11
-  name: null
+    github: uid11
+    name: null

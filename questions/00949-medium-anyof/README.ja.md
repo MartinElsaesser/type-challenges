@@ -5,8 +5,8 @@ Pythonの `any` 関数のような型を実装してください。実装する�
 例えば:
 
 ```ts
-type Sample1 = AnyOf<[1, "", false, [], {}]> // expected to be true.
-type Sample2 = AnyOf<[0, "", false, [], {}]> // expected to be false.
+type Sample1 = AnyOf<[1, "", false, [], {}]>; // expected to be true.
+type Sample2 = AnyOf<[0, "", false, [], {}]>; // expected to be false.
 ```
 
 <!--info-footer-start--><br><a href="../../README.ja.md" target="_blank"><img src="https://img.shields.io/badge/-%E6%88%BB%E3%82%8B-grey" alt="戻る"/></a> <a href="https://tsch.js.org/949/answer/ja" target="_blank"><img src="https://img.shields.io/badge/-%E8%A7%A3%E7%AD%94%E3%82%92%E5%85%B1%E6%9C%89-teal" alt="解答を共有"/></a> <a href="https://tsch.js.org/949/solutions" target="_blank"><img src="https://img.shields.io/badge/-%E8%A7%A3%E7%AD%94%E3%82%92%E7%A2%BA%E8%AA%8D-de5a77?logo=awesome-lists&logoColor=white" alt="解答を確認"/></a> <!--info-footer-end-->

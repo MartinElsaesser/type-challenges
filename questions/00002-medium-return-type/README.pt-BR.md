@@ -8,13 +8,11 @@ Por exemplo
 
 ```ts
 const fn = (v: boolean) => {
-  if (v)
-    return 1
-  else
-    return 2
-}
+	if (v) return 1;
+	else return 2;
+};
 
-type a = MyReturnType<typeof fn> // should be "1 | 2"
+type a = MyReturnType<typeof fn>; // should be "1 | 2"
 ```
 
 <!--info-footer-start--><br><a href="../../README.pt-BR.md" target="_blank"><img src="https://img.shields.io/badge/-Voltar-grey" alt="Voltar"/></a> <a href="https://tsch.js.org/2/answer/pt-BR" target="_blank"><img src="https://img.shields.io/badge/-Compartilhar%20suas%20Solu%C3%A7%C3%B5es-teal" alt="Compartilhar suas Soluções"/></a> <a href="https://tsch.js.org/2/solutions" target="_blank"><img src="https://img.shields.io/badge/-Conferir%20Solu%C3%A7%C3%B5es-de5a77?logo=awesome-lists&logoColor=white" alt="Conferir Soluções"/></a> <!--info-footer-end-->

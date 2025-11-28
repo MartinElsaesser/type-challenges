@@ -1,1 +1,1 @@
-type DeepOmit = any
+type DeepOmit = any;

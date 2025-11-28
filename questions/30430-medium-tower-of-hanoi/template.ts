@@ -1,1 +1,1 @@
-type Hanoi<N extends number, From = 'A', To = 'B', Intermediate = 'C'> = any
+type Hanoi<N extends number, From = "A", To = "B", Intermediate = "C"> = any;

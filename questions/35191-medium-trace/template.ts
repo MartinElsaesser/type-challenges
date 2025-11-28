@@ -1,1 +1,1 @@
-type Trace<T extends any[][]> = any
+type Trace<T extends any[][]> = any;

@@ -20,21 +20,51 @@
 
 /* _____________ Your Code Here _____________ */
 
-type OptionalUndefined<T, Props> = any
+type OptionalUndefined<T, Props> = any;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<OptionalUndefined<{ value: string | undefined }, 'value'>, { value?: string | undefined }>>,
-  Expect<Equal<OptionalUndefined<{ value: string, desc: string }, 'value'>, { value: string, desc: string }>>,
-  Expect<Equal<OptionalUndefined<{ value: string | undefined, desc: string }, 'value'>, { value?: string, desc: string }>>,
-  Expect<Equal<OptionalUndefined<{ value: string | undefined, desc: string | undefined }, 'value'>, { value?: string | undefined, desc: string | undefined }>>,
-  Expect<Equal<OptionalUndefined<{ value: string | undefined, desc: string }, 'value' | 'desc'>, { value?: string, desc: string }>>,
-  Expect<Equal<OptionalUndefined<{ value: string | undefined, desc: string | undefined }>, { value?: string, desc?: string }>>,
-  Expect<Equal<OptionalUndefined<{ value?: string }, 'value'>, { value?: string }>>,
-  Expect<Equal<OptionalUndefined<{ value?: string }>, { value?: string }>>,
-]
+	Expect<
+		Equal<
+			OptionalUndefined<{ value: string | undefined }, "value">,
+			{ value?: string | undefined }
+		>
+	>,
+	Expect<
+		Equal<
+			OptionalUndefined<{ value: string; desc: string }, "value">,
+			{ value: string; desc: string }
+		>
+	>,
+	Expect<
+		Equal<
+			OptionalUndefined<{ value: string | undefined; desc: string }, "value">,
+			{ value?: string; desc: string }
+		>
+	>,
+	Expect<
+		Equal<
+			OptionalUndefined<{ value: string | undefined; desc: string | undefined }, "value">,
+			{ value?: string | undefined; desc: string | undefined }
+		>
+	>,
+	Expect<
+		Equal<
+			OptionalUndefined<{ value: string | undefined; desc: string }, "value" | "desc">,
+			{ value?: string; desc: string }
+		>
+	>,
+	Expect<
+		Equal<
+			OptionalUndefined<{ value: string | undefined; desc: string | undefined }>,
+			{ value?: string; desc?: string }
+		>
+	>,
+	Expect<Equal<OptionalUndefined<{ value?: string }, "value">, { value?: string }>>,
+	Expect<Equal<OptionalUndefined<{ value?: string }>, { value?: string }>>,
+];
 
 /* _____________ Further Steps _____________ */
 /*

@@ -1,1 +1,1 @@
-type CheckRepeatedTuple<T extends unknown[]> = any
+type CheckRepeatedTuple<T extends unknown[]> = any;

@@ -1,1 +1,1 @@
-type UnionToObjectFromKey<Union, Key> = any
+type UnionToObjectFromKey<Union, Key> = any;

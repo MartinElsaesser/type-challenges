@@ -8,18 +8,18 @@ TypeScript4.1 の機能である[Template Literal Types](https://devblogs.micros
 
 ```ts
 type Data = {
-  foo: {
-    bar: {
-      value: 'foobar';
-      count: 6;
-    };
-    included: true;
-  };
-  hello: 'world';
+	foo: {
+		bar: {
+			value: "foobar";
+			count: 6;
+		};
+		included: true;
+	};
+	hello: "world";
 };
-type A = Get<Data, 'hello'>; // 'world'
-type B = Get<Data, 'foo.bar.count'>; // 6
-type C = Get<Data, 'foo.bar'>; // { value: 'foobar', count: 6 }
+type A = Get<Data, "hello">; // 'world'
+type B = Get<Data, "foo.bar.count">; // 6
+type C = Get<Data, "foo.bar">; // { value: 'foobar', count: 6 }
 ```
 
 この課題では、配列へのアクセスは必要ありません。

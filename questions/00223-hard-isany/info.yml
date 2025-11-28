@@ -2,7 +2,7 @@ difficulty: hard
 title: IsAny
 tags: utils
 author:
-  github: pashutk
-  name: Pavel Glushkov
+    github: pashutk
+    name: Pavel Glushkov
 
 related: 1042, 1097, 4484

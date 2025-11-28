@@ -8,12 +8,12 @@ Por exemplo
 
 ```ts
 interface Todo {
-  readonly title: string
-  readonly description: string
-  completed: boolean
+	readonly title: string;
+	readonly description: string;
+	completed: boolean;
 }
 
-type Keys = GetReadonlyKeys<Todo> // expected to be "title" | "description"
+type Keys = GetReadonlyKeys<Todo>; // expected to be "title" | "description"
 ```
 
 <!--info-footer-start--><br><a href="../../README.pt-BR.md" target="_blank"><img src="https://img.shields.io/badge/-Voltar-grey" alt="Voltar"/></a> <a href="https://tsch.js.org/5/answer/pt-BR" target="_blank"><img src="https://img.shields.io/badge/-Compartilhar%20suas%20Solu%C3%A7%C3%B5es-teal" alt="Compartilhar suas Soluções"/></a> <a href="https://tsch.js.org/5/solutions" target="_blank"><img src="https://img.shields.io/badge/-Conferir%20Solu%C3%A7%C3%B5es-de5a77?logo=awesome-lists&logoColor=white" alt="Conferir Soluções"/></a> <!--info-footer-end-->

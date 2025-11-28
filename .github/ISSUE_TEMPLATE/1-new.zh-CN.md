@@ -9,7 +9,6 @@ labels: new-challenge, zh-CN
 
 > 你不需要提供详细的答案或教学，但请保证题目可解。
 
-
 ## 基本信息
 
 ```yaml
@@ -18,7 +17,6 @@ difficulty: easy # medium / hard / extreme
 
 # 题目标题
 title: 你的题目
-
 # 题目标签
 # tags: union, array # separate by comma
 ```
@@ -36,7 +34,7 @@ title: 你的题目
 以下是给予挑战者开始做题的代码模版，在大部分情况下你只需要修改类型名称使其符合你的题目与判题测试，实现的部分保持 `any` 即可。
 
 ```ts
-type YourType = any
+type YourType = any;
 ```
 
 ## 判题测试
@@ -44,10 +42,8 @@ type YourType = any
 请为你的题目提供一些判题测试，你可以使用 `@type-challenges/utils` 中提供的一些工具进行判断。
 
 ```ts
-import type { Equal, Expect } from '@type-challenges/utils'
-import { ExpectFalse, NotEqual } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
+import { ExpectFalse, NotEqual } from "@type-challenges/utils";
 
-type cases = [
-  Expect<Equal<true, true>>
-]
+type cases = [Expect<Equal<true, true>>];
 ```

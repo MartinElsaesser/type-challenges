@@ -6,40 +6,40 @@
 
 ```ts
 type X = {
-  readonly a: () => 1
-  readonly b: string
-  readonly c: {
-    readonly d: boolean
-    readonly e: {
-      readonly g: {
-        readonly h: {
-          readonly i: true
-          readonly j: "s"
-        }
-        readonly k: "hello"
-      }
-    }
-  }
-}
+	readonly a: () => 1;
+	readonly b: string;
+	readonly c: {
+		readonly d: boolean;
+		readonly e: {
+			readonly g: {
+				readonly h: {
+					readonly i: true;
+					readonly j: "s";
+				};
+				readonly k: "hello";
+			};
+		};
+	};
+};
 
 type Expected = {
-  a: () => 1
-  b: string
-  c: {
-    d: boolean
-    e: {
-      g: {
-        h: {
-          i: true
-          j: "s"
-        }
-        k: "hello"
-      }
-    }
-  }
-}
+	a: () => 1;
+	b: string;
+	c: {
+		d: boolean;
+		e: {
+			g: {
+				h: {
+					i: true;
+					j: "s";
+				};
+				k: "hello";
+			};
+		};
+	};
+};
 
-type Todo = DeepMutable<X> // should be same as `Expected`
+type Todo = DeepMutable<X>; // should be same as `Expected`
 ```
 
 你可以假设我们在这个挑战中只处理对象。 数组、函数、类等不需要考虑。 但是，您仍然可以通过涵盖尽可能多的不同案例来挑战自己。

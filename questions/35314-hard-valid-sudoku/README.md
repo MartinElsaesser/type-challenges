@@ -4,18 +4,17 @@ Sudoku is a famous paper and pencil game. The goal of Sudoku is to fill a 9x9 gr
 
 ```ts
 type Matrix = [
-  [9, 5, 7, 8, 4, 6, 1, 3, 2],
-  [2, 3, 4, 5, 9, 1, 6, 7, 8],
-  [1, 8, 6, 7, 3, 2, 5, 4, 9],
-  [8, 9, 1, 6, 2, 3, 4, 5, 7],
-  [3, 4, 5, 9, 7, 8, 2, 6, 1],
-  [6, 7, 2, 1, 5, 4, 8, 9, 3],
-  [4, 6, 8, 3, 1, 9, 7, 2, 5],
-  [5, 2, 3, 4, 8, 7, 9, 1, 6],
-  [7, 1, 9, 2, 6, 5, 3, 8, 4]
-]
-type result = ValidSudoku <Matrix>; // expected to be true
+	[9, 5, 7, 8, 4, 6, 1, 3, 2],
+	[2, 3, 4, 5, 9, 1, 6, 7, 8],
+	[1, 8, 6, 7, 3, 2, 5, 4, 9],
+	[8, 9, 1, 6, 2, 3, 4, 5, 7],
+	[3, 4, 5, 9, 7, 8, 2, 6, 1],
+	[6, 7, 2, 1, 5, 4, 8, 9, 3],
+	[4, 6, 8, 3, 1, 9, 7, 2, 5],
+	[5, 2, 3, 4, 8, 7, 9, 1, 6],
+	[7, 1, 9, 2, 6, 5, 3, 8, 4],
+];
+type result = ValidSudoku<Matrix>; // expected to be true
 ```
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/35314/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/35314/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

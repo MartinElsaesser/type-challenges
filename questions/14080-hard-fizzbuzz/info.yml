@@ -2,5 +2,5 @@ difficulty: hard
 title: FizzBuzz
 tags: array, math, infer
 author:
-  github: Cygnut
-  name: Lee Crosby
+    github: Cygnut
+    name: Lee Crosby

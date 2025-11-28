@@ -8,12 +8,12 @@ Hello, World!
 
 ```ts
 // 期望是一个 string 类型
-type HelloWorld = any
+type HelloWorld = any;
 ```
 
 ```ts
 // 你需要使得如下这行不会抛出异常
-type test = Expect<Equal<HelloWorld, string>>
+type test = Expect<Equal<HelloWorld, string>>;
 ```
 
 点击上方的 `接受挑战` 开始编码！旅途愉快！

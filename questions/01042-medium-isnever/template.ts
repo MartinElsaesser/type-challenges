@@ -1,1 +1,1 @@
-type IsNever<T> = any
+type IsNever<T> = any;

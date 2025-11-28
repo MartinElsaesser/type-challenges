@@ -1,1 +1,1 @@
-type CartesianProduct<T, U> = any
+type CartesianProduct<T, U> = any;

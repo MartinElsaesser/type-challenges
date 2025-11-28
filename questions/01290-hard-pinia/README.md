@@ -17,25 +17,25 @@ When you define a store like this:
 
 ```typescript
 const store = defineStore({
-  // ...other required fields
-  getters: {
-    getSomething() {
-      return 'xxx'
-    }
-  }
-})
+	// ...other required fields
+	getters: {
+		getSomething() {
+			return "xxx";
+		},
+	},
+});
 ```
 
 And you should use it like this:
 
 ```typescript
-store.getSomething
+store.getSomething;
 ```
 
 instead of:
 
 ```typescript
-store.getSomething()  // error
+store.getSomething(); // error
 ```
 
 Additionally, getters can access state and/or other getters via `this`, but state is read-only.
@@ -46,26 +46,25 @@ When you define a store like this:
 
 ```typescript
 const store = defineStore({
-  // ...other required fields
-  actions: {
-    doSideEffect() {
-      this.xxx = 'xxx'
-      return 'ok'
-    }
-  }
-})
+	// ...other required fields
+	actions: {
+		doSideEffect() {
+			this.xxx = "xxx";
+			return "ok";
+		},
+	},
+});
 ```
 
 Using it is just to call it:
 
 ```typescript
-const returnValue = store.doSideEffect()
+const returnValue = store.doSideEffect();
 ```
 
 Actions can return any value or return nothing, and it can receive any number of parameters with different types.
 Parameters types and return type can't be lost, which means type-checking must be available at call side.
 
 State can be accessed and mutated via `this`. Getters can be accessed via `this` but they're read-only.
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/1290/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/1290/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

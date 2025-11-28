@@ -3,7 +3,7 @@
 テンプレート文字列の長さを計算する`LengthOfString<S>`を実装します。([298 - Length of String](https://tsch.js.org/298)と同じような型):
 
 ```ts
-type T0 = LengthOfString<'foo'>; // 3
+type T0 = LengthOfString<"foo">; // 3
 ```
 
 この課題で実装する型は、数百文字の長さの文字列をサポートしなければなりません(通常の再帰的な文字列長の計算は、TS の再帰的な関数呼び出しの深さによって制限されています、つまり、45 文字程度までの文字列をサポートしています)。

@@ -11,4 +11,3 @@ A list of TODOs for this project, PR welcome!
 - [ ] More learning resources
 
 - [ ] "Recent Challenges" section in the README
-

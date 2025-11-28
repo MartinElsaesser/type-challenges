@@ -10,16 +10,16 @@ Por exemplo
 
 ```ts
 interface Todo {
-  title: string
-  description: string
-  completed: boolean
+	title: string;
+	description: string;
+	completed: boolean;
 }
 
-type TodoPreview = MyOmit<Todo, 'description' | 'title'>
+type TodoPreview = MyOmit<Todo, "description" | "title">;
 
 const todo: TodoPreview = {
-  completed: false,
-}
+	completed: false,
+};
 ```
 
 <!--info-footer-start--><br><a href="../../README.pt-BR.md" target="_blank"><img src="https://img.shields.io/badge/-Voltar-grey" alt="Voltar"/></a> <a href="https://tsch.js.org/3/answer/pt-BR" target="_blank"><img src="https://img.shields.io/badge/-Compartilhar%20suas%20Solu%C3%A7%C3%B5es-teal" alt="Compartilhar suas Soluções"/></a> <a href="https://tsch.js.org/3/solutions" target="_blank"><img src="https://img.shields.io/badge/-Conferir%20Solu%C3%A7%C3%B5es-de5a77?logo=awesome-lists&logoColor=white" alt="Conferir Soluções"/></a> <hr><h3>Desafios Relacionados</h3><a href="https://github.com/type-challenges/type-challenges/blob/main/questions/00004-easy-pick/README.pt-BR.md" target="_blank"><img src="https://img.shields.io/badge/-4%E3%83%BBPick-7aad0c" alt="4・Pick"/></a> <!--info-footer-end-->

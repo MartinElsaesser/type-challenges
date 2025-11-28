@@ -3,10 +3,9 @@
 You're required to implement a type-level parser to parse URL params string into an Union.
 
 ```ts
-ParseUrlParams<':id'> // id
-ParseUrlParams<'posts/:id'> // id
-ParseUrlParams<'posts/:id/:user'> // id | user
+ParseUrlParams<":id">; // id
+ParseUrlParams<"posts/:id">; // id
+ParseUrlParams<"posts/:id/:user">; // id | user
 ```
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/9616/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/9616/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

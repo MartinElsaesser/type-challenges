@@ -9,9 +9,9 @@ If `T` is an empty array, it returns `never`. **Negative numbers** are not consi
 For example:
 
 ```ts
-Maximum<[]> // never
-Maximum<[0, 2, 1]> // 2
-Maximum<[1, 20, 200, 150]> // 200
+Maximum<[]>; // never
+Maximum<[0, 2, 1]>; // 2
+Maximum<[1, 20, 200, 150]>; // 200
 ```
 
 ### Advanced

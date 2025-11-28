@@ -14,35 +14,33 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Bit = 1 | 0
+type Bit = 1 | 0;
 
-type BinaryAdd<A extends Bit[], B extends Bit[]> = any
+type BinaryAdd<A extends Bit[], B extends Bit[]> = any;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<
-    BinaryAdd<[1], [1]>,
-    [1, 0]
-  >>,
-  Expect<Equal<
-    BinaryAdd<[0], [1]>,
-    [1]
-  >>,
-  Expect<Equal<
-    BinaryAdd<[1, 1, 0], [0, 0, 1]>,
-    [1, 1, 1]
-  >>,
-  Expect<Equal<
-    BinaryAdd<[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]>,
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
-  >>,
-  Expect<Equal<
-    BinaryAdd<[1, 0, 1, 0, 1, 1, 1, 0], [1, 0, 0, 0, 1, 1, 0, 0]>,
-    [1, 0, 0, 1, 1, 1, 0, 1, 0]
-  >>,
-]
+	Expect<Equal<BinaryAdd<[1], [1]>, [1, 0]>>,
+	Expect<Equal<BinaryAdd<[0], [1]>, [1]>>,
+	Expect<Equal<BinaryAdd<[1, 1, 0], [0, 0, 1]>, [1, 1, 1]>>,
+	Expect<
+		Equal<
+			BinaryAdd<
+				[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+				[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+			>,
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
+		>
+	>,
+	Expect<
+		Equal<
+			BinaryAdd<[1, 0, 1, 0, 1, 1, 1, 0], [1, 0, 0, 0, 1, 1, 0, 0]>,
+			[1, 0, 0, 1, 1, 1, 0, 1, 0]
+		>
+	>,
+];
 
 /* _____________ Further Steps _____________ */
 /*

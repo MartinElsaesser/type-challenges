@@ -5,11 +5,11 @@ Some concepts in TypeScript can not be described by types, but can be expressed 
 ```ts
 // Ensures `n` is a positive number
 function positive<const N extends number>(n: `${N}` extends `-${string}` ? never : N) {
-  return n
+	return n;
 }
 
-const a = positive(1) // Ok
-const b = positive(-1) // Error, -1 is not assignable to never
+const a = positive(1); // Ok
+const b = positive(-1); // Error, -1 is not assignable to never
 ```
 
 Write a CIF `uniqueItems` that takes a tuple of literals and ensures that all of them are unique.
@@ -17,6 +17,5 @@ You are free to use either mutable or readonly tuples.
 
 Bonus task: Helpful error messages instead of `not assignable to never`.
 Bonus task: Only repeating tuple elements should be treated as errors, not the entire argument.
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/30178/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/30178/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

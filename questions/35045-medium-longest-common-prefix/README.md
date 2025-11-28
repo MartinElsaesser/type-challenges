@@ -7,13 +7,13 @@ Write a type, `LongestCommonPrefix` that returns the longest common prefix strin
 If there is no common prefix, return an empty string `""`.
 
 ```ts
-type Common = LongestCommonPrefix<["flower", "flow", "flight"]>
+type Common = LongestCommonPrefix<["flower", "flow", "flight"]>;
 //   ?^ "fl"
 
-type Uncommon = LongestCommonPrefix<["dog", "racecar", "race"]>
+type Uncommon = LongestCommonPrefix<["dog", "racecar", "race"]>;
 //   ?^ ""
 ```
-Inspired by [LeetCode 14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/)
 
+Inspired by [LeetCode 14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/)
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/35045/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/35045/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

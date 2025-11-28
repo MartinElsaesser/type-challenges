@@ -6,12 +6,11 @@ Type the function `PromiseAll` that accepts an array of PromiseLike objects, the
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise<string>((resolve, reject) => {
-  setTimeout(resolve, 100, 'foo');
+	setTimeout(resolve, 100, "foo");
 });
 
 // expected to be `Promise<[number, 42, string]>`
-const p = PromiseAll([promise1, promise2, promise3] as const)
+const p = PromiseAll([promise1, promise2, promise3] as const);
 ```
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/20/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/20/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

@@ -2,5 +2,5 @@ difficulty: medium
 title: Capitalize
 tags: template-literal
 author:
-  github: antfu
-  name: Anthony Fu
+    github: antfu
+    name: Anthony Fu

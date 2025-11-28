@@ -8,27 +8,26 @@ Your solution should correctly handle fixed and non-fixed length arrays, optiona
 type Result = IntersectParameters<
 	[{ a: 0 }, { b: 1 }?, { c: 2 }?, ...{ d: 3 }[]],
 	[{ e: 4 }?, { f: 5 }?, ...{ g: 6 }[]]
->
+>;
 
 type Expected = [
 	{
-		a: 0
-		e: 4
+		a: 0;
+		e: 4;
 	},
 	{
-		b: 1
-		f: 5
+		b: 1;
+		f: 5;
 	}?,
 	{
-		c: 2
-		g: 6
+		c: 2;
+		g: 6;
 	}?,
 	...{
-		d: 3
-		g: 6
-	}[]
-]
+		d: 3;
+		g: 6;
+	}[],
+];
 ```
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/31997/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/31997/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

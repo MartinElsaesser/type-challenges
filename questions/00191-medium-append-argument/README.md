@@ -5,13 +5,12 @@ For given function type `Fn`, and any type `A` (any in this context means we don
 For example,
 
 ```typescript
-type Fn = (a: number, b: string) => number
+type Fn = (a: number, b: string) => number;
 
-type Result = AppendArgument<Fn, boolean> 
+type Result = AppendArgument<Fn, boolean>;
 // expected be (a: number, b: string, x: boolean) => number
 ```
 
 > This question is ported from the [original article](https://dev.to/macsikora/advanced-typescript-exercises-question-4-495c) by [@maciejsikora](https://github.com/maciejsikora)
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/191/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/191/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

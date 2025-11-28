@@ -1,1 +1,1 @@
-type IsAlphabet<S extends string> = any
+type IsAlphabet<S extends string> = any;

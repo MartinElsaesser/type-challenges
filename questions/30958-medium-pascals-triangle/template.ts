@@ -1,1 +1,1 @@
-type Pascal<N extends number> = any
+type Pascal<N extends number> = any;

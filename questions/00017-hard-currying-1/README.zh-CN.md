@@ -7,11 +7,11 @@
 例如：
 
 ```ts
-const add = (a: number, b: number) => a + b
-const three = add(1, 2)
+const add = (a: number, b: number) => a + b;
+const three = add(1, 2);
 
-const curriedAdd = Currying(add)
-const five = curriedAdd(2)(3)
+const curriedAdd = Currying(add);
+const five = curriedAdd(2)(3);
 ```
 
 传递给 `Currying` 的函数可能有多个参数，您需要正确输入它的类型。

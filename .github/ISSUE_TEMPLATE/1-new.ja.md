@@ -17,7 +17,6 @@ difficulty: easy # medium / hard / extreme
 
 # タイトル
 title: 課題のタイトル
-
 # タグ
 # tags: union, array # separate by comma
 ```
@@ -35,7 +34,7 @@ title: 課題のタイトル
 課題の挑戦者がコーディングを始める際のテンプレートです。基本的には質問とテストに合わせて型の名前を変更して、実装は `any` とするだけです。
 
 ```ts
-type YourType = any
+type YourType = any;
 ```
 
 ## テストケース
@@ -43,10 +42,8 @@ type YourType = any
 あなたの課題のテストケースです。`@type-challenges/utils`が提供するいくつかのアサーションを使うことが出来ます。
 
 ```ts
-import type { Equal, Expect } from '@type-challenges/utils'
-import { ExpectFalse, NotEqual } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
+import { ExpectFalse, NotEqual } from "@type-challenges/utils";
 
-type cases = [
-  Expect<Equal<true, true>>
-]
+type cases = [Expect<Equal<true, true>>];
 ```

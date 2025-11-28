@@ -5,7 +5,7 @@
 例如
 
 ```ts
-type Result = RequiredKeys<{ foo: number; bar?: string }>
+type Result = RequiredKeys<{ foo: number; bar?: string }>;
 // expected to be “foo”
 ```
 

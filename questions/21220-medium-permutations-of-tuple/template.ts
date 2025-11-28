@@ -1,1 +1,1 @@
-type PermutationsOfTuple<T extends unknown[]> = any
+type PermutationsOfTuple<T extends unknown[]> = any;

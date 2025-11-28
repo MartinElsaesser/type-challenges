@@ -1,1 +1,1 @@
-type ExtractToObject<T, U> = any
+type ExtractToObject<T, U> = any;

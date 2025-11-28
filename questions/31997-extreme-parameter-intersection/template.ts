@@ -1,4 +1,1 @@
-type IntersectParameters<
-    l extends readonly unknown[],
-    r extends readonly unknown[],
-> = l & r
+type IntersectParameters<l extends readonly unknown[], r extends readonly unknown[]> = l & r;

@@ -2,5 +2,5 @@ difficulty: medium
 title: JSON Schema to TypeScript
 tags: JSON
 author:
-  github: aswinsvijay
-  name: null
+    github: aswinsvijay
+    name: null

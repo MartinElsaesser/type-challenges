@@ -7,21 +7,21 @@ JavaScript では、チェイン可能なオプションがよく使われます
 例えば
 
 ```ts
-declare const config: Chainable
+declare const config: Chainable;
 
 const result = config
-  .option('foo', 123)
-  .option('name', 'type-challenges')
-  .option('bar', { value: 'Hello World' })
-  .get()
+	.option("foo", 123)
+	.option("name", "type-challenges")
+	.option("bar", { value: "Hello World" })
+	.get();
 
 // expect the type of result to be:
 interface Result {
-  foo: number
-  name: string
-  bar: {
-    value: string
-  }
+	foo: number;
+	name: string;
+	bar: {
+		value: string;
+	};
 }
 ```
 

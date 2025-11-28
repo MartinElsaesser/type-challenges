@@ -3,26 +3,26 @@
 enum は TypeScript 独自の文法です(JavaScript にはありません)。そのため、以下の形式にトランスパイルされます。
 
 ```js
-let OperatingSystem
-;(function (OperatingSystem) {
-  OperatingSystem[(OperatingSystem['MacOS'] = 0)] = 'MacOS'
-  OperatingSystem[(OperatingSystem['Windows'] = 1)] = 'Windows'
-  OperatingSystem[(OperatingSystem['Linux'] = 2)] = 'Linux'
-})(OperatingSystem || (OperatingSystem = {}))
+let OperatingSystem;
+(function (OperatingSystem) {
+	OperatingSystem[(OperatingSystem["MacOS"] = 0)] = "MacOS";
+	OperatingSystem[(OperatingSystem["Windows"] = 1)] = "Windows";
+	OperatingSystem[(OperatingSystem["Linux"] = 2)] = "Linux";
+})(OperatingSystem || (OperatingSystem = {}));
 ```
 
 この問題では、文字列のタプルを enum と同じようなオブジェクトに変換する型を実装します。
 さらに、enum のプロパティはパスカルケースであることが好ましいです。
 
 ```ts
-Enum<['macOS', 'Windows', 'Linux']>
+Enum<["macOS", "Windows", "Linux"]>;
 // -> { readonly MacOS: "macOS", readonly Windows: "Windows", readonly Linux: "Linux" }
 ```
 
 第 2 引数に`true`が与えられた場合、値は数値リテラルとなります。
 
 ```ts
-Enum<['macOS', 'Windows', 'Linux'], true>
+Enum<["macOS", "Windows", "Linux"], true>;
 // -> { readonly MacOS: 0, readonly Windows: 1, readonly Linux: 2 }
 ```
 

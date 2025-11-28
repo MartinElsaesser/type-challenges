@@ -1,1 +1,1 @@
-type MergeAll<XS> = any
+type MergeAll<XS> = any;

@@ -1,1 +1,1 @@
-type IsOdd<T extends number> = any
+type IsOdd<T extends number> = any;

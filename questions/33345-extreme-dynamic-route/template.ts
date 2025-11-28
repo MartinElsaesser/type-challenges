@@ -1,1 +1,1 @@
-type DynamicRoute<T extends string> = any
+type DynamicRoute<T extends string> = any;

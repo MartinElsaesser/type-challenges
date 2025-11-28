@@ -18,15 +18,15 @@
 
 /* _____________ Your Code Here _____________ */
 
-type GetRequired<T> = any
+type GetRequired<T> = any;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<GetRequired<{ foo: number, bar?: string }>, { foo: number }>>,
-  Expect<Equal<GetRequired<{ foo: undefined, bar?: undefined }>, { foo: undefined }>>,
-]
+	Expect<Equal<GetRequired<{ foo: number; bar?: string }>, { foo: number }>>,
+	Expect<Equal<GetRequired<{ foo: undefined; bar?: undefined }>, { foo: undefined }>>,
+];
 
 /* _____________ Further Steps _____________ */
 /*

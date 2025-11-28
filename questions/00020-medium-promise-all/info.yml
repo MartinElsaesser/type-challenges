@@ -2,5 +2,5 @@ difficulty: medium
 title: Promise.all
 tags: array, promise
 author:
-  github: antfu
-  name: Anthony Fu
+    github: antfu
+    name: Anthony Fu

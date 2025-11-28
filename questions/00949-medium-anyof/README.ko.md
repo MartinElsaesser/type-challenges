@@ -9,8 +9,8 @@ Python의 `any` function을 타입 시스템으로 구현하세요
 예시:
 
 ```ts
-type Sample1 = AnyOf<[1, "", false, [], {}]> // expected to be true.
-type Sample2 = AnyOf<[0, "", false, [], {}]> // expected to be false.
+type Sample1 = AnyOf<[1, "", false, [], {}]>; // expected to be true.
+type Sample2 = AnyOf<[0, "", false, [], {}]>; // expected to be false.
 ```
 
 <!--info-footer-start--><br><a href="../../README.ko.md" target="_blank"><img src="https://img.shields.io/badge/-%EB%8F%8C%EC%95%84%EA%B0%80%EA%B8%B0-grey" alt="돌아가기"/></a> <a href="https://tsch.js.org/949/answer/ko" target="_blank"><img src="https://img.shields.io/badge/-%EC%A0%95%EB%8B%B5%20%EA%B3%B5%EC%9C%A0%ED%95%98%EA%B8%B0-teal" alt="정답 공유하기"/></a> <a href="https://tsch.js.org/949/solutions" target="_blank"><img src="https://img.shields.io/badge/-%EC%A0%95%EB%8B%B5%20%EB%B3%B4%EA%B8%B0-de5a77?logo=awesome-lists&logoColor=white" alt="정답 보기"/></a> <!--info-footer-end-->

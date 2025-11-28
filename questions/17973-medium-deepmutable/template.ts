@@ -1,1 +1,1 @@
-type DeepMutable = any
+type DeepMutable = any;

@@ -6,10 +6,10 @@ The sequence starts:
 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 
 For example
-```ts
-type Result1 = Fibonacci<3> // 2
-type Result2 = Fibonacci<8> // 21
-```
 
+```ts
+type Result1 = Fibonacci<3>; // 2
+type Result2 = Fibonacci<8>; // 21
+```
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/4182/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/4182/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

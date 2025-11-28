@@ -6,49 +6,46 @@ You have a target object and a source array of objects. You need to copy propert
 
 ```ts
 type Target = {
-  a: 'a'
-}
+	a: "a";
+};
 
 type Origin1 = {
-  b: 'b'
-}
+	b: "b";
+};
 
 // type Result = Assign<Target, [Origin1]>
 type Result = {
-  a: 'a'
-  b: 'b'
-}
+	a: "a";
+	b: "b";
+};
 ```
-
 
 ```ts
 type Target = {
-  a: 'a'
-  d: { 
-    hi: 'hi'
-  }
-}
+	a: "a";
+	d: {
+		hi: "hi";
+	};
+};
 
 type Origin1 = {
-  a: 'a1',
-  b: 'b'
-}
-
+	a: "a1";
+	b: "b";
+};
 
 type Origin2 = {
-  b: 'b2',
-  c: 'c'
-}
+	b: "b2";
+	c: "c";
+};
 
 type Answer = {
-   a: 'a1',
-   b: 'b2',
-   c: 'c'
-   d: { 
-      hi: 'hi'
-  }
-}
+	a: "a1";
+	b: "b2";
+	c: "c";
+	d: {
+		hi: "hi";
+	};
+};
 ```
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/9160/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/9160/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

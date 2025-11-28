@@ -8,12 +8,12 @@ Type Challenges では、型システム自体を使用してアサーション�
 
 ```ts
 // expected to be string
-type HelloWorld = any
+type HelloWorld = any;
 ```
 
 ```ts
 // you should make this work
-type test = Expect<Equal<HelloWorld, string>>
+type test = Expect<Equal<HelloWorld, string>>;
 ```
 
 「挑戦する」ボタンをクリックしてコーディングを開始してください！ Happy Hacking！

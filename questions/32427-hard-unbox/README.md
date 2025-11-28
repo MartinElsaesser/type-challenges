@@ -5,23 +5,22 @@ How can we build a type that "unboxes" arrays, functions, promises, and tuples?
 Example:
 
 ```typescript
-Unbox<string> // string
-Unbox<()=>number> // number
-Unbox<boolean[]> // boolean
-Unbox<Promise<boolean>> // boolean
+Unbox<string>; // string
+Unbox<() => number>; // number
+Unbox<boolean[]>; // boolean
+Unbox<Promise<boolean>>; // boolean
 ```
 
 Bonus: Can we make it recursive?
 
 ```typescript
-Unbox<() => () => () => () => number> // number
+Unbox<() => () => () => () => number>; // number
 ```
 
 Double Bonus: Can we control the recursion?
 
 ```typescript
-Unbox<() => () => () => () => number, 3> // () => number
+Unbox<() => () => () => () => number, 3>; // () => number
 ```
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/32427/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/32427/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

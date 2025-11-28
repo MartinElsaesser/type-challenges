@@ -1,1 +1,1 @@
-type PublicType<T extends object> = any
+type PublicType<T extends object> = any;

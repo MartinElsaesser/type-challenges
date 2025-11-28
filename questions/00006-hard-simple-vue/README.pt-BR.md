@@ -18,24 +18,24 @@ O tipo de valor de retorno de `SimpleVue` pode ser arbitrário.
 
 ```ts
 const instance = SimpleVue({
-  data() {
-    return {
-      firstname: 'Type',
-      lastname: 'Challenges',
-      amount: 10,
-    }
-  },
-  computed: {
-    fullname() {
-      return this.firstname + ' ' + this.lastname
-    }
-  },
-  methods: {
-    hi() {
-      alert(this.fullname.toLowerCase())
-    }
-  }
-})
+	data() {
+		return {
+			firstname: "Type",
+			lastname: "Challenges",
+			amount: 10,
+		};
+	},
+	computed: {
+		fullname() {
+			return this.firstname + " " + this.lastname;
+		},
+	},
+	methods: {
+		hi() {
+			alert(this.fullname.toLowerCase());
+		},
+	},
+});
 ```
 
 <!--info-footer-start--><br><a href="../../README.pt-BR.md" target="_blank"><img src="https://img.shields.io/badge/-Voltar-grey" alt="Voltar"/></a> <a href="https://tsch.js.org/6/answer/pt-BR" target="_blank"><img src="https://img.shields.io/badge/-Compartilhar%20suas%20Solu%C3%A7%C3%B5es-teal" alt="Compartilhar suas Soluções"/></a> <a href="https://tsch.js.org/6/solutions" target="_blank"><img src="https://img.shields.io/badge/-Conferir%20Solu%C3%A7%C3%B5es-de5a77?logo=awesome-lists&logoColor=white" alt="Conferir Soluções"/></a> <hr><h3>Desafios Relacionados</h3><a href="https://github.com/type-challenges/type-challenges/blob/main/questions/00213-hard-vue-basic-props/README.md" target="_blank"><img src="https://img.shields.io/badge/-213%E3%83%BBVue%20Basic%20Props-de3d37" alt="213・Vue Basic Props"/></a> <!--info-footer-end-->

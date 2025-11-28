@@ -5,9 +5,9 @@
 The requirements for these parameters are: `T` must be a `tuple`, `N` can be any type of value, `Start` and `End` must be integers greater than or equal to 0.
 
 ```ts
-type exp = Fill<[1, 2, 3], 0> // expected to be [0, 0, 0]
+type exp = Fill<[1, 2, 3], 0>; // expected to be [0, 0, 0]
 ```
-In order to simulate the real function, the test may contain some boundary conditions, I hope you can enjoy it :)
 
+In order to simulate the real function, the test may contain some boundary conditions, I hope you can enjoy it :)
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/4518/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/4518/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

@@ -17,7 +17,6 @@ labels: answer, zh-CN
 谢谢！
 -->
 
-
 ```ts
 // 你的答案
 ```

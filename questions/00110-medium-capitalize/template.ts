@@ -1,1 +1,1 @@
-type MyCapitalize<S extends string> = any
+type MyCapitalize<S extends string> = any;

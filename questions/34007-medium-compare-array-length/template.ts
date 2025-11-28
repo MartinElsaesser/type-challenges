@@ -1,1 +1,1 @@
-type CompareArrayLength<T extends any[], U extends any[]> = any
+type CompareArrayLength<T extends any[], U extends any[]> = any;

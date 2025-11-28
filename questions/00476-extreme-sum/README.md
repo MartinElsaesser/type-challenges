@@ -5,11 +5,10 @@ Implement a type `Sum<A, B>` that summing two non-negative integers and returns 
 For example,
 
 ```ts
-type T0 = Sum<2, 3> // '5'
-type T1 = Sum<'13', '21'> // '34'
-type T2 = Sum<'328', 7> // '335'
-type T3 = Sum<1_000_000_000_000n, '123'> // '1000000000123'
+type T0 = Sum<2, 3>; // '5'
+type T1 = Sum<"13", "21">; // '34'
+type T2 = Sum<"328", 7>; // '335'
+type T3 = Sum<1_000_000_000_000n, "123">; // '1000000000123'
 ```
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/476/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/476/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

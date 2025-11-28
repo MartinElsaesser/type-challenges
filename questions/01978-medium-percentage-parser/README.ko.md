@@ -7,17 +7,17 @@ PercentageParser을 구현하세요. `/^(\+|\-)?(\d*)?(\%)?$/` 정규식에 따�
 예시:
 
 ```ts
-type PString1 = ""
-type PString2 = "+85%"
-type PString3 = "-85%"
-type PString4 = "85%"
-type PString5 = "85"
+type PString1 = "";
+type PString2 = "+85%";
+type PString3 = "-85%";
+type PString4 = "85%";
+type PString5 = "85";
 
-type R1 = PercentageParser<PString1> // expected ['', '', '']
-type R2 = PercentageParser<PString2> // expected ["+", "85", "%"]
-type R3 = PercentageParser<PString3> // expected ["-", "85", "%"]
-type R4 = PercentageParser<PString4> // expected ["", "85", "%"]
-type R5 = PercentageParser<PString5> // expected ["", "85", ""]
+type R1 = PercentageParser<PString1>; // expected ['', '', '']
+type R2 = PercentageParser<PString2>; // expected ["+", "85", "%"]
+type R3 = PercentageParser<PString3>; // expected ["-", "85", "%"]
+type R4 = PercentageParser<PString4>; // expected ["", "85", "%"]
+type R5 = PercentageParser<PString5>; // expected ["", "85", ""]
 ```
 
 <!--info-footer-start--><br><a href="../../README.ko.md" target="_blank"><img src="https://img.shields.io/badge/-%EB%8F%8C%EC%95%84%EA%B0%80%EA%B8%B0-grey" alt="돌아가기"/></a> <a href="https://tsch.js.org/1978/answer/ko" target="_blank"><img src="https://img.shields.io/badge/-%EC%A0%95%EB%8B%B5%20%EA%B3%B5%EC%9C%A0%ED%95%98%EA%B8%B0-teal" alt="정답 공유하기"/></a> <a href="https://tsch.js.org/1978/solutions" target="_blank"><img src="https://img.shields.io/badge/-%EC%A0%95%EB%8B%B5%20%EB%B3%B4%EA%B8%B0-de5a77?logo=awesome-lists&logoColor=white" alt="정답 보기"/></a> <!--info-footer-end-->

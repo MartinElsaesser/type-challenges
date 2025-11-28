@@ -1,1 +1,1 @@
-type MyUppercase<T extends string> = any
+type MyUppercase<T extends string> = any;

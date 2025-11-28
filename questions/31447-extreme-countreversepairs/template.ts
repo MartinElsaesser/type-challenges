@@ -1,1 +1,1 @@
-type CountReversePairs<T extends number[]> = any
+type CountReversePairs<T extends number[]> = any;

@@ -4,11 +4,10 @@ Given an array of unique elements, return all possible subsequences.
 
 A subsequence is a sequence that can be derived from an array by deleting some or no elements without changing the order of the remaining elements.
 
-For example: 
+For example:
 
 ```typescript
-type A = Subsequence<[1, 2]> // [] | [1] | [2] | [1, 2]
+type A = Subsequence<[1, 2]>; // [] | [1] | [2] | [1, 2]
 ```
-
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/8987/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/8987/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

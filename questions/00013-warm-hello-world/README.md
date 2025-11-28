@@ -8,12 +8,12 @@ For this challenge, you will need to change the following code to make the tests
 
 ```ts
 // expected to be string
-type HelloWorld = any
+type HelloWorld = any;
 ```
 
 ```ts
 // you should make this work
-type test = Expect<Equal<HelloWorld, string>>
+type test = Expect<Equal<HelloWorld, string>>;
 ```
 
 Click the `Take the Challenge` button to start coding! Happy Hacking!

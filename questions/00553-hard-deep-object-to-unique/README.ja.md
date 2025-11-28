@@ -9,7 +9,7 @@ TypeScript は構造的型システムを持っていますが、場合によっ
 例えば、
 
 ```ts
-import { Equal } from '@type-challenges/utils';
+import { Equal } from "@type-challenges/utils";
 
 type Foo = { foo: 2; bar: { 0: 1 }; baz: { 0: 1 } };
 
@@ -22,9 +22,9 @@ uniqFoo = foo; // ok
 foo = uniqFoo; // ok
 
 type T0 = Equal<UniqFoo, Foo>; // false
-type T1 = UniqFoo['foo']; // 2
-type T2 = Equal<UniqFoo['bar'], UniqFoo['baz']>; // false
-type T3 = UniqFoo['bar'][0]; // 1
+type T1 = UniqFoo["foo"]; // 2
+type T2 = Equal<UniqFoo["bar"], UniqFoo["baz"]>; // false
+type T3 = UniqFoo["bar"][0]; // 1
 type T4 = Equal<keyof Foo & string, keyof UniqFoo & string>; // true
 ```
 

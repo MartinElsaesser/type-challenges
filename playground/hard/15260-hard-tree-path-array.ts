@@ -38,29 +38,34 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Path<T> = any
+type Path<T> = any;
 
 /* _____________ Test Cases _____________ */
-import type { ExpectExtends, ExpectFalse, ExpectTrue } from '@type-challenges/utils'
+import type { ExpectExtends, ExpectFalse, ExpectTrue } from "@type-challenges/utils";
 
 declare const example: {
-  foo: {
-    bar: {
-      a: string
-    }
-    baz: {
-      b: number
-      c: number
-    }
-  }
-}
+	foo: {
+		bar: {
+			a: string;
+		};
+		baz: {
+			b: number;
+			c: number;
+		};
+	};
+};
 
 type cases = [
-  ExpectTrue<ExpectExtends<Path<typeof example['foo']['bar']>, ['a']>>,
-  ExpectTrue<ExpectExtends<Path<typeof example['foo']['baz']>, ['b'] | ['c'] >>,
-  ExpectTrue<ExpectExtends<Path<typeof example['foo']>, ['bar'] | ['baz'] | ['bar', 'a'] | ['baz', 'b'] | ['baz', 'c']>>,
-  ExpectFalse<ExpectExtends<Path<typeof example['foo']['bar']>, ['z']>>,
-]
+	ExpectTrue<ExpectExtends<Path<(typeof example)["foo"]["bar"]>, ["a"]>>,
+	ExpectTrue<ExpectExtends<Path<(typeof example)["foo"]["baz"]>, ["b"] | ["c"]>>,
+	ExpectTrue<
+		ExpectExtends<
+			Path<(typeof example)["foo"]>,
+			["bar"] | ["baz"] | ["bar", "a"] | ["baz", "b"] | ["baz", "c"]
+		>
+	>,
+	ExpectFalse<ExpectExtends<Path<(typeof example)["foo"]["bar"]>, ["z"]>>,
+];
 
 /* _____________ Further Steps _____________ */
 /*
