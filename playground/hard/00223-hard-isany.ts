@@ -14,19 +14,20 @@
 
 /* _____________ Your Code Here _____________ */
 
-type IsAny<T> = any
+// source: https://github.com/type-challenges/type-challenges/issues/232#issue-705032568
+type IsAny<T> = 0 extends 1 & T ? true : false;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils";
 
 type cases = [
-  Expect<Equal<IsAny<any>, true>>,
+	Expect<Equal<IsAny<any>, true>>,
 
-  Expect<Equal<IsAny<undefined>, false>>,
-  Expect<Equal<IsAny<unknown>, false>>,
-  Expect<Equal<IsAny<never>, false>>,
-  Expect<Equal<IsAny<string>, false>>,
-]
+	Expect<Equal<IsAny<undefined>, false>>,
+	Expect<Equal<IsAny<unknown>, false>>,
+	Expect<Equal<IsAny<never>, false>>,
+	Expect<Equal<IsAny<string>, false>>,
+];
 
 /* _____________ Further Steps _____________ */
 /*
